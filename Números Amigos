@@ -1,0 +1,36 @@
+def suma_divisores(numero):
+  """
+  Función que calcula la suma de los divisores propios de un número.
+
+  Parámetros:
+    numero: El número a calcular la suma de sus divisores.
+
+  Retorno:
+    La suma de los divisores propios de `numero`.
+  """
+  suma_divisores = 0
+  for divisor in range(1, numero):
+    if numero % divisor == 0:
+      suma_divisores += divisor
+  return suma_divisores
+
+def son_amigos(a, b):
+  """
+  Función que indica si dos números son amigos.
+
+  Parámetros:
+    a: El primer número.
+    b: El segundo número.
+
+  Retorno:
+    True si los números son amigos, False si no lo son.
+  """
+  return suma_divisores(a) == b and suma_divisores(b) == a
+
+a = int(input("Introduzca el primer número: "))
+b = int(input("Introduzca el segundo número: "))
+
+if son_amigos(a, b):
+  print(f"{a} y {b} son números amigos")
+else:
+  print(f"{a} y {b} no son números amigos")
